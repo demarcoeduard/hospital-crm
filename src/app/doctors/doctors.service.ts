@@ -14,7 +14,7 @@ export class DoctorsService {
   constructor(private http: HttpClient) { }
 
   setDoctors() {
-    return this.http.get<Doctor[]>(
+    this.http.get<Doctor[]>(
       'https://hospital-crm-3ad4f-default-rtdb.firebaseio.com/doctors.json'
     ).subscribe(doctors => {
       this.doctors = doctors;

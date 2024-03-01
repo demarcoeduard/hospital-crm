@@ -1,0 +1,84 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <label class="label-section">Personal Details</label>
+  <label for="name">Full Name</label>
+  <input 
+    id="name" 
+    type="text" 
+    placeholder="Full Name"
+    formControlName="name">
+  <label for="cnp">CNP</label>
+  <input 
+    id="cnp" 
+    type="number" 
+    placeholder="CNP"
+    formControlName="cnp">
+  <label for="contact">Contact</label>
+  <input 
+    id="contact" 
+    type="text" 
+    placeholder="Contact"
+    formControlName="contact">
+  <label class="label-section">Medical Concern & Practitioner</label>
+  <label for="complaint">Complaint</label>
+  <input 
+    id="complaint" 
+    type="text" 
+    placeholder="Complaint"
+    formControlName="complaint">
+  <label for="doctor">Doctor</label>
+  <input 
+    id="doctor" 
+    type="text" 
+    placeholder="Doctor"
+    list="doctors"
+    formControlName="doctor">
+  <datalist id="doctors">
+    <option *ngFor="let doctor of doctors" value="{{ doctor.name }}"></option>
+  </datalist>
+  <label class="label-section">Medical History</label>
+  <div class="label-wrapper">
+    <label>Allergies</label>
+    <button (click)="onAddAllergy()" class="add-allergy button-style" type="button">Add</button>
+  </div>
+  <div class="allergies-wrapper" formArrayName="allergies">
+    <div class="input-wrapper" *ngFor="let allergy of controlsAllergies; let i = index">
+      <input 
+      type="text" 
+      placeholder="Allergy"
+      [formControlName]="i">
+      <button (click)="onRemoveAllergy(i)" class="remove-allergy button-style" type="button">Remove</button>
+    </div>
+  </div>
+  <div class="label-wrapper">
+    <label>Drugs</label>
+    <button (click)="onAddDrug()" class="add-drug button-style" type="button">Add</button>
+  </div>
+  <div class="drugs-wrapper" formArrayName="drugs">
+    <div class="input-wrapper" *ngFor="let drug of controlsDrugs; let i = index">
+      <input
+      type="text" 
+      placeholder="Drug"
+      [formControlName]="i">
+      <button (click)="onRemoveDrug(i)" class="remove-drug button-style" type="button">Remove</button>
+    </div>
+  </div>
+  <div class="label-wrapper">
+    <label>Operations</label>
+    <button (click)="onAddOperation()" class="add-operation button-style" type="button">Add</button>
+  </div>
+  <div class="operations-wrapper" formArrayName="operations">
+    <div class="input-wrapper" *ngFor="let operation of controlsOperations; let i = index">
+      <input 
+      type="text" 
+      placeholder="Operation"
+      [formControlName]="i">
+      <button (click)="onRemoveOperation(i)" class="remove-operation button-style" type="button">Remove</button>
+    </div>
+  </div>
+  <div class="buttons">
+    <button (click)="onDelete()" *ngIf="id !== ''" class="delete button-style" type="button">Delete</button>
+    <button (click)="onCancel()" class="cancel button-style" type="button">Cancel</button>
+    <button [disabled]="!form.valid" *ngIf="id === ''" class="save button-style" type="submit">Save</button>
+    <button (click)="onEdit(form.value)" [disabled]="!form.valid" *ngIf="id !== ''" class="save button-style" type="button">Save</button>
+  </div>
+</form>

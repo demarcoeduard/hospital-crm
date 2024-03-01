@@ -1,0 +1,68 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <label class="label-section">Personal Details</label>
+  <label for="photo">Photo</label>
+  <input 
+    id="photo" 
+    type="file" 
+    accept="image/*"
+    formControlName="image"
+    (change)="onFileSelected($event)">
+    <img [src]="imageUrl">
+  <label for="name">Full Name</label>
+  <input 
+    id="name" 
+    type="text" 
+    placeholder="Full Name"
+    formControlName="name">
+  <label class="label-section">Career Details</label>
+  <label for="profession">Profession</label>
+  <input 
+    type="text" 
+    placeholder="Profession"
+    formControlName="profession">
+  <div class="label-wrapper">
+    <label>Specializations</label>
+    <button (click)="onAddSpecialization()" class="add-specialization button-style" type="button">Add</button>
+  </div>
+  <div class="specializations-wrapper" formArrayName="specializations">
+    <div class="input-wrapper" *ngFor="let specialization of controlsSpecializations; let i = index">
+      <input
+      type="text" 
+      placeholder="Specialization"
+      [formControlName]="i">
+      <button (click)="onRemoveSpecialization(i)" class="remove-specialization button-style" type="button">Remove</button>
+    </div>
+  </div>
+  <label class="label-section">Career Track</label>
+  <label for="experience">Experience</label>
+  <input 
+    id="experience" 
+    type="number" 
+    placeholder="Experience"
+    formControlName="experience">
+  <label for="education">Education</label>
+  <input 
+    id="education" 
+    type="text" 
+    placeholder="Education"
+    formControlName="education">
+  <div class="label-wrapper">
+    <label>Certifications</label>
+    <button (click)="onAddCertification()" class="add-certification button-style" type="button">Add</button>
+  </div>
+  <div class="certifications-wrapper" formArrayName="certifications">
+    <div class="input-wrapper" *ngFor="let certification of controlsCertifications; let i = index">
+      <input 
+      type="text" 
+      placeholder="Certification"
+      [formControlName]="i">
+      <button (click)="onRemoveCertification(i)" class="remove-certification button-style" type="button">Remove</button>
+    </div>
+  </div>
+  <div class="buttons">
+    <button (click)="onDelete()" *ngIf="id !== ''"  class="delete button-style" type="button">Delete</button>
+    <button (click)="onCancel()" class="cancel button-style" type="button">Cancel</button>
+    <button [disabled]="!form.valid" *ngIf="id === ''" class="save button-style" type="submit">Save</button>
+    <button (click)="onEdit(form.value)" [disabled]="!form.valid" *ngIf="id !== ''" class="save button-style" type="button">Save</button>
+  </div>
+</form>

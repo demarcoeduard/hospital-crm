@@ -1,0 +1,49 @@
+<div class="profile-wrapper">
+  <div class="info-wrapper">
+    <div class="info">
+      <h3>Name:</h3>
+      <p>{{ patient.name }}</p>
+    </div>
+    <div class="info">
+      <h3>CNP:</h3>
+      <p>{{ patient.cnp }}</p>
+    </div>
+  </div>
+  <div class="info-wrapper">
+    <div class="info">
+      <h3>Complaint:</h3>
+      <p>{{ patient.complaint }}</p>
+    </div>
+    <div class="info">
+      <h3>Doctor:</h3>
+      <p>{{ patient.doctor }}</p>
+    </div>
+  </div>
+  <div class="info-wrapper">
+    <div class="info">
+      <h3>Contact:</h3>
+      <p>{{ patient.contact }}</p>
+    </div>
+    <div class="info">
+      <h3>Allergies:</h3>
+      <ul>
+        <li *ngFor="let allergy of patient.allergies">{{ allergy }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="info-wrapper">
+    <div class="info">
+      <h3>Operations:</h3>
+      <ul>
+        <li *ngFor="let operation of patient.operations">{{ operation }}</li>
+      </ul>
+    </div>
+    <div class="info">
+      <h3>Drugs:</h3>
+      <ul>
+        <li *ngFor="let drug of patient.drugs">{{ drug }}</li>
+      </ul>
+    </div>
+  </div>
+  <button (click)="onEdit()">Edit Patient Data</button>
+</div>

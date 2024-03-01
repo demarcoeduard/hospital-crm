@@ -1,0 +1,14 @@
+<div class="header">
+  <img class="logo" src="assets/logo.png">
+  <nav *ngIf="isScreenSmall === false">
+    <a routerLink="appointments" routerLinkActive="active">Appointments</a>
+    <a routerLink="doctors" routerLinkActive="active">Doctors</a>
+    <a routerLink="patients" routerLinkActive="active">Patients</a>
+  </nav>
+  <img (click)="toggleNav()" *ngIf="isScreenSmall" class="menu-img" [src]="isOpen ? 'assets/x.svg' : 'assets/menu.svg'">
+</div>
+<nav *ngIf="isOpen === true" class="smallNav">
+  <a routerLink="appointments" routerLinkActive="active">Appointments</a>
+  <a routerLink="doctors" routerLinkActive="active">Doctors</a>
+  <a routerLink="patients" routerLinkActive="active">Patients</a>
+</nav>

@@ -1,0 +1,25 @@
+<div class="table-wrapper">
+  <input type="text" placeholder="Search..." [(ngModel)]="searchTerm">
+  <div class="thead-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Chief Complaint</th>
+          <th>Doctor Name</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbody-wrapper">
+    <table>
+      <tbody>
+        <tr *ngFor="let patient of patients | filter:searchTerm">
+          <td>{{ patient.name }}</td>
+          <td>{{ patient.complaint }}</td>
+          <td>{{ patient.doctor }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

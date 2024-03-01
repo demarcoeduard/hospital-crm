@@ -1,0 +1,21 @@
+<div class="actions-wrapper">
+  <input type="text" placeholder="Search..." [(ngModel)]="searchTerm">
+  <p>OR</p>
+  <button (click)="onAddPatient()">Add Patient</button>
+</div>
+<div class="patients-wrapper">
+  <div class="patient-wrapper" *ngFor="let patient of patients | filter:searchTerm; let i = index" (click)="onShowProfile(i)">
+    <div class="detail-wrapper">
+      <p>NAME:</p>
+      <span>{{ patient.name }}</span>
+    </div>
+    <div class="detail-wrapper">
+      <p>CNP:</p>
+      <span>{{ patient.cnp }}</span>
+    </div>
+    <div class="detail-wrapper">
+      <p>COMPLAINT:</p>
+      <span>{{ patient.complaint }}</span>
+    </div> 
+  </div>
+</div>

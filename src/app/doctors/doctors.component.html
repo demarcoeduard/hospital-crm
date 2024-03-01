@@ -1,0 +1,15 @@
+<div class="actions-wrapper">
+  <input type="text" placeholder="Search..." [(ngModel)]="searchTerm">
+  <p>OR</p>
+  <button (click)="onAddDoctor()">Add Doctor</button>
+</div>
+<div class="doctors-wrapper">
+  <div class="doctor-wrapper" *ngFor="let doctor of doctors | filter:searchTerm; let i = index" (click)="onShowProfile(i)">
+    <img src="{{ doctor.image }}">
+    <div class="info-wrapper">
+      <p>NAME: <span>{{ doctor.name }}</span></p>
+      <p>PROFESSION: <span>{{ doctor.profession }}</span></p>
+      <p>SPECIALIZATION: <span>{{ doctor.specializations[0] }}</span></p>
+    </div>
+  </div>
+</div>

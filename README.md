@@ -1,10 +1,8 @@
 # Hospital CRM
 
-[![GitHub issues](https://img.shields.io/github/issues/demarcoeduard/hospital-crm.svg)](https://github.com/demarcoeduard/hospital-crm/issues)
-[![GitHub forks](https://img.shields.io/github/forks/demarcoeduard/hospital-crm.svg)](https://github.com/demarcoeduard/hospital-crm/network)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/demarcoeduard/hospital-crm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/demarcoeduard/hospital-crm)
+[![GitHub forks](https://img.shields.io/github/forks/demarcoeduard/hospital-crm.svg)](https://github.com/demarcoeduard/hospital-crm/network)
 
 Welcome to Hospital CRM! This repository contains a comprehensive CRM system designed specifically for hospital management. It facilitates the organization of appointments, doctors, and patients efficiently.
 
@@ -79,6 +77,34 @@ Visit http://localhost:4200 in your web browser to use the application.
 - **Editing Doctors/Patients**: Click on the edit button inside the profile view to send you to the edit form where you can see the current data and change it with the new informations about them.
   
 - **Deleting Doctors/Patients**: Click on the delete button inside the edit form view to remove the doctor/patient from the list. Note: You cannot delete a doctor if they are assigned to a patient, first assign a new doctor for that patient or delete the patient.
+
+## Configuration Guide
+
+To configure the hospital CRM according to your needs, follow the instructions below:
+
+### Doctors Configuration
+
+If you want to fetch doctors' data from your own Firebase database:
+
+1. Go to the `doctors.service.ts` file.
+2. Update the Firebase URL in the `setDoctors()` method.
+3. Ensure that the `Doctor` model in the `doctor.model.ts` file matches your database schema or customize it according to your requirements.
+
+### Patients Configuration
+
+If you want to fetch patients' data from your own Firebase database:
+
+1. Go to the `patients.service.ts` file.
+2. Update the Firebase URL in the `setPatients()` method.
+3. Ensure that the `Patient` model in the `patient.model.ts` file aligns with your database structure or customize it as needed.
+
+#### Note:
+
+If you prefer to directly input doctors' or patients' data into the code rather than using a database:
+
+- Remove the corresponding HTTP request entirely from the `setDoctors()` or `setPatients()` methods.
+- Manually populate the `doctors` or `patients` array with your data and emit it accordingly.
+
 
 ## Contributing
 

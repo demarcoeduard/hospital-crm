@@ -6,6 +6,8 @@
 
 Welcome to Hospital CRM! This repository contains a comprehensive CRM system designed specifically for hospital management. It facilitates the organization of appointments, doctors, and patients efficiently.
 
+**Check out the live website: [Hospital CRM](https://demarcoeduard.github.io/hospital-crm/)**
+
 ## Features
 
 - **Appointment Management:** View and manage appointments effortlessly.
